@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { deleteIcon } from "../icons";
 
 export const DailyButton = (props) => {
-  const { daily, api, setDeleteOpen, deleteOpen, addOpen } = props;
+  const { daily, api, deleteOpen, addOpen } = props;
+  const [deleteButtonColor, setDeleteButtonColor] = useState("fill-blue-600");
 
   const isCompleted = (daily) => {
     const date = new Date();
@@ -38,11 +39,19 @@ export const DailyButton = (props) => {
     });
   };
 
+  const handleActiveDelete = () => {
+    setDeleteButtonColor("fill-blue-400");
+  };
+
+  const handleInactiveDelete = () => {
+    setDeleteButtonColor("fill-blue-600");
+  };
+
   const label = Object.keys(daily)[0];
   const completed = isCompleted(daily);
 
   return (
-    <div className="flex w-full justify-between align-middle mb-[3px]">
+    <div className="flex w-full justify-center mb-[3px]">
       <div className="w-1/5"></div>
       <div className={`${deleteOpen ? "animate-wiggle" : ""}`}>
         <button
@@ -54,15 +63,21 @@ export const DailyButton = (props) => {
               : "bg-orange-300 active:bg-green-300 disabled:active:bg-orange-300"
           }`}
         >
-          <p className="font-bold">
+          <p className="font-bold overflow-scroll px-2">
             {label[0].toUpperCase() + label.substring(1)}
           </p>
         </button>
       </div>
       {deleteOpen ? (
-        <div className="flex w-1/5">
-          <button className="px-2 pb-1" onClick={handleDelete}>
-            {deleteIcon()}
+        <div className="flex justify-start w-1/5 ml-1">
+          <button
+            className="px-2"
+            onMouseDown={handleActiveDelete}
+            onMouseUp={handleInactiveDelete}
+            onMouseLeave={handleInactiveDelete}
+            onClick={handleDelete}
+          >
+            {deleteIcon(deleteButtonColor)}
           </button>
         </div>
       ) : (

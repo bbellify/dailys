@@ -11,6 +11,7 @@ export const App = () => {
   const [dailys, setDailys] = useState([]);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [addOpen, setAddOpen] = useState(false);
+  const [menuButtonColor, setMenuButtonColor] = useState("fill-blue-600");
 
   useEffect(() => {
     api.subscribe({
@@ -26,17 +27,34 @@ export const App = () => {
     }
   };
 
+  const handleActiveMenu = () => {
+    setMenuButtonColor("fill-blue-400");
+  };
+
+  const handleInactiveMenu = () => {
+    setMenuButtonColor("fill-blue-600");
+  };
+
   return (
     <main className="flex items-center justify-center min-h-screen">
-      <div className="flex-col bg-yellow-100 pb-8 min-h-screen w-full sm:max-w-[500px] relative shadow-lg">
-        <div className="absolute top-0 right-0 flex m-2 justify-center align-middle">
-          <button disabled={addOpen} onClick={() => setDeleteOpen(!deleteOpen)}>
-            {deleteOpen ? closeIcon() : menuIcon(addOpen)}
-          </button>
-        </div>
-
-        <div className="flex flex-col">
+      <div className="flex-col bg-yellow-100 pb-8 min-h-screen w-full sm:max-w-[500px] shadow-lg">
+        <div className="flex w-full justify-between align-middle">
+          <div className="w-1/6"></div>
           <h1 className="text-4xl font-bold pt-10 text-center pb-8">%dailys</h1>
+          <div className="flex justify-center items-center w-1/6">
+            <button
+              className="w-fit px-3 py-2"
+              disabled={addOpen}
+              onMouseDown={handleActiveMenu}
+              onMouseUp={handleInactiveMenu}
+              onMouseLeave={handleInactiveMenu}
+              onClick={() => setDeleteOpen(!deleteOpen)}
+            >
+              {deleteOpen
+                ? closeIcon(menuButtonColor)
+                : menuIcon(addOpen, menuButtonColor)}
+            </button>
+          </div>
         </div>
         <div className="flex flex-col items-center">
           {Array.isArray(dailys) &&

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { closeIcon } from "../icons";
+import { closeIcon, addIcon } from "../icons";
 
 export const AddButton = (props) => {
   const { addOpen, setAddOpen, api, deleteOpen } = props;
   const [newDaily, setNewDaily] = useState("");
+  const [buttonColor, setButtonColor] = useState("fill-blue-600");
 
   const handleChange = (e) => {
     setNewDaily(e.target.value);
@@ -40,33 +41,18 @@ export const AddButton = (props) => {
     setAddOpen(false);
   };
 
+  const handleActive = () => {
+    setButtonColor("fill-blue-400");
+  };
+
+  const handleInactive = () => {
+    setButtonColor("fill-blue-600");
+  };
+
   const addDisabled = deleteOpen ? true : addOpen ? !newDaily : false;
 
   return (
     <div className="flex flex-col">
-      <button
-        disabled={addDisabled}
-        onClick={!addOpen ? () => setAddOpen(true) : () => handleAdd()}
-        className="bg-green-200 text-middle rounded-md w-[300px] py-3 mt-[10px] shadow-lg active:bg-green-300 disabled:bg-green-100"
-      >
-        {addOpen ? (
-          <p
-            className={`font-bold ${
-              addOpen && !newDaily ? "text-blue-300" : ""
-            }`}
-          >
-            save
-          </p>
-        ) : (
-          <p
-            className={`font-bold ${
-              addDisabled ? "text-blue-300" : "text-blue-500"
-            }`}
-          >
-            +
-          </p>
-        )}
-      </button>
       {addOpen && (
         <div className="flex justify-between bg-green-100 text-middle rounded-md w-[300px] py-3 mt-[10px] shadow-lg">
           <div className="w-1/6"></div>
@@ -79,12 +65,37 @@ export const AddButton = (props) => {
             onKeyDown={handleKeyPress}
           />
           <div className="flex w-1/6 justify-center">
-            <button className="font-bold" onClick={handleClose}>
-              {closeIcon()}
+            <button
+              className=""
+              onMouseDown={handleActive}
+              onMouseUp={handleInactive}
+              onMouseLeave={handleInactive}
+              onClick={handleClose}
+            >
+              {closeIcon(buttonColor)}
             </button>
           </div>
         </div>
       )}
+      <button
+        disabled={addDisabled}
+        onClick={!addOpen ? () => setAddOpen(true) : () => handleAdd()}
+        className="bg-green-200 flex justify-center rounded-md w-[300px] py-3 mt-[10px] shadow-lg active:bg-green-300 disabled:bg-green-100"
+      >
+        {addOpen ? (
+          <p
+            className={`font-bold ${
+              addOpen && !newDaily ? "text-blue-300" : ""
+            }`}
+          >
+            save
+          </p>
+        ) : (
+          <div>
+            {addIcon(addDisabled ? "rgb(147 197 253)" : "rgb(59 130 246)")}
+          </div>
+        )}
+      </button>
     </div>
   );
 };

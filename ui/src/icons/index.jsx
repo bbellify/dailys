@@ -1,10 +1,10 @@
 import React from "react";
 
-export const deleteIcon = () => {
+export const deleteIcon = (buttonColor) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="w-6 fill-blue-600 active:fill-blue-400"
+      className={`w-6 ${buttonColor}`}
       viewBox="0 0 512 512"
     >
       <path
@@ -16,13 +16,11 @@ export const deleteIcon = () => {
   );
 };
 
-export const menuIcon = (addOpen) => {
+export const menuIcon = (addOpen, buttonColor) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={`w-6 fill-blue-600 active:fill-blue-400 ${
-        addOpen ? "active:fill-blue-600" : ""
-      }`}
+      className={`w-6 ${buttonColor} ${addOpen ? "active:fill-blue-600" : ""}`}
       viewBox="0 0 512 512"
     >
       <circle cx="256" cy="256" r="48" />
@@ -32,14 +30,34 @@ export const menuIcon = (addOpen) => {
   );
 };
 
-export const closeIcon = () => {
+export const closeIcon = (buttonColor) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="w-6 fill-blue-600 active:fill-blue-400"
+      className={`w-6 ${buttonColor}`}
       viewBox="0 0 512 512"
     >
       <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z" />
+    </svg>
+  );
+};
+
+export const addIcon = (buttonColor) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6"
+      color={buttonColor}
+      viewBox="0 0 512 512"
+    >
+      <path
+        fill="currentColor"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="50"
+        d="M256 112v288M400 256H112"
+      />
     </svg>
   );
 };
