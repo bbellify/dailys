@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Urbit from "@urbit/http-api";
 import DailyButton from "./components/DailyButton";
 import AddButton from "./components/AddButton";
+import { menuIcon, closeIcon } from "./icons";
 
 const api = new Urbit("", "", window.desk);
 api.ship = window.ship;
@@ -27,14 +28,12 @@ export const App = () => {
 
   return (
     <main className="flex items-center justify-center min-h-screen">
-      <div className="flex-col bg-yellow-100 min-h-screen w-full sm:max-w-[400px] relative">
-        <button
-          disabled={addOpen}
-          className="absolute top-0 right-0 m-2"
-          onClick={() => setDeleteOpen(!deleteOpen)}
-        >
-          delete button
-        </button>
+      <div className="flex-col bg-yellow-100 pb-8 min-h-screen w-full sm:max-w-[500px] relative shadow-lg">
+        <div className="absolute top-0 right-0 flex m-2 justify-center align-middle">
+          <button disabled={addOpen} onClick={() => setDeleteOpen(!deleteOpen)}>
+            {deleteOpen ? closeIcon() : menuIcon(addOpen)}
+          </button>
+        </div>
 
         <div className="flex flex-col">
           <h1 className="text-4xl font-bold pt-10 text-center pb-8">%dailys</h1>
