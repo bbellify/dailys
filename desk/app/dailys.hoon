@@ -35,19 +35,30 @@
   ?>  ?=(%dailys-action mark)
   =/  act  !<(action vase)
   ?-  -.act
-      %complete  `this(dailysmap dailysmap)
+      %complete  
+    =/  newmap  (~(put by dailysmap) daily-key.act [now:bowl])
+    :_   
+      this(dailysmap newmap)
+    [%give %fact ~[/updates] %dailys-update !>(`update`[%dailys newmap])]~
       ::
-      %add  !!
-    :: `this(vault (~(del by vault) id.act))
+      %undo  
+    =/  newmap  (~(put by dailysmap) daily-key.act [*time])
+    :_   
+      this(dailysmap newmap)
+    [%give %fact ~[/updates] %dailys-update !>(`update`[%dailys newmap])]~
       ::
-      %del  !!
-    :: `this(vault (~(put by vault) id.act `entry`[website.act username.act password.act now:bowl]))
+      %add
+    =/  newmap  (~(put by dailysmap) daily-key.act [*time])
+    :_   
+      this(dailysmap newmap)
+    [%give %fact ~[/updates] %dailys-update !>(`update`[%dailys newmap])]~
       ::
-:: 
-    ::   %gen
-    :: :_
-    ::   this(vault vault)
-    :: [%give %fact ~[/updates] %knox-update !>(`update`[%enty `enty`(~(rad og eny:bowl) (pow 2 32))])]~
+      %del
+    =/  newmap  (~(del by dailysmap) daily-key.act)
+    :_   
+      this(dailysmap newmap)
+    [%give %fact ~[/updates] %dailys-update !>(`update`[%dailys newmap])]~
+      ::
  ==
 ::
 ++  on-watch

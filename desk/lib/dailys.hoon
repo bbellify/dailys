@@ -1,15 +1,16 @@
 /-  *dailys
 |%
-++  dejs-action  !!
-  :: =,  dejs:format
-  :: |=  jon=json
-  :: ^-  action
-  :: %.  jon
-  :: %-  of  !!
-  :: :: :~  [%complete (ot ~[website+so username+so password+so])]
-  :: ::     [%add (ot ~[id+ni website+so username+so password+so])]
-  :: ::     [%del (ot ~[id+ni])]
-  :: :: ==
+++  dejs-action
+  =,  dejs:format
+  |=  jon=json
+  ^-  action
+  %.  jon
+  %-  of
+  :~  [%complete (ot ~[daily-key+so])]
+      [%add (ot ~[daily-key+so])]
+      [%del (ot ~[daily-key+so])]
+      [%undo (ot ~[daily-key+so])]
+  ==
 ::
 ++  enjs-update
   =,  enjs:format
@@ -20,6 +21,7 @@
            %complete  !!
            %add  !!
            %del  !!
+           %undo  !!
            %dailys  (frond 'dailys' a+(turn ~(tap by dailysmap.upd) dailys))
   ==
   ++  dailys
