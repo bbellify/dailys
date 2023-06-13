@@ -3,13 +3,19 @@ import React, { useState } from "react";
 export const DailyButton = (props) => {
   const { daily, api } = props;
   const label = Object.keys(daily)[0];
-  const completed = Object.values(daily)[0] === null ? false : true;
+  const completed =
+    new Date(Object.values(daily)[0]).getDay() === new Date().getDay()
+      ? true
+      : false;
+
   const handleClick = () => {
     console.log("click");
   };
+
   const handleCompleted = () => {
     console.log("completed");
   };
+
   return (
     <button
       disabled={completed}
@@ -23,12 +29,7 @@ export const DailyButton = (props) => {
         <p className="font-bold translate-x-3">
           {label[0].toUpperCase() + label.substring(1)}
         </p>
-        <input
-          type="checkbox"
-          checked={completed}
-          onChange={handleCompleted}
-          className="mr-3"
-        />
+        <input readOnly type="checkbox" checked={completed} className="mr-3" />
       </div>
     </button>
   );

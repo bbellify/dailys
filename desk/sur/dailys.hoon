@@ -1,6 +1,6 @@
 |%
-+$  daily-key   @t
-+$  completed   $?(@ud ~)
++$  daily-key   @tas
++$  completed   @da
 :: +$  daily       [daily-key completed]
 :: +$  dailyslist      (list daily)
 :: poke action types

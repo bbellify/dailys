@@ -17,7 +17,7 @@
     io    ~(. agentio bowl)
 ++  on-init
 :: set default dailys on init
-`this(dailysmap `(map daily-key completed)`(malt ~[[`daily-key`'guitar scales' ~] [`daily-key`'AG1' ~] [`daily-key`'run' ~] [`daily-key`'pushups' ~] [`daily-key`'one more thing' ~] [`daily-key`'one other thing' ~]]))
+`this(dailysmap `(map daily-key completed)`(malt ~[[`daily-key`'guitar scales' *time] [`daily-key`'AG1' *time] [`daily-key`'run' *time] [`daily-key`'pushups' *time] [`daily-key`'vipassana' *time] [`daily-key`'install %dailys' now:bowl]]))
 ::
 ++  on-save
   ^-  vase
@@ -58,16 +58,16 @@
     this
   [%give %fact ~ %dailys-update !>(`update`[%dailys dailysmap])]~
 ::
-++  on-peek  on-peek:def
-  :: |=  =path
-  :: ^-  (unit (unit cage))
-  :: ?>  (team:title our.bowl src.bowl)
-  :: ?+  path  (on-peek:def path)
-  ::     [%x %dailys ~]
-  ::   :^  ~  ~  %dailys-update
-  ::   !>  ^-  update
-  ::   [%dailys dailysmap]
-  ::  ==
+++  on-peek
+  |=  =path
+  ^-  (unit (unit cage))
+  ?>  (team:title our.bowl src.bowl)
+  ?+  path  (on-peek:def path)
+      [%x %dailys ~]
+    :^  ~  ~  %dailys-update
+    !>  ^-  update
+    [%dailys dailysmap]
+   ==
 ++  on-leave  on-leave:def
 ++  on-agent  on-agent:def
 ++  on-arvo  on-arvo:def
