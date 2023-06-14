@@ -1,9 +1,9 @@
 :~  title+'dailys'
     info+'do your dailys'
-    color+0x2e.4347
-    glob-http+['https://bootstrap.urbit.org/glob-0v5.hurm4.ejod5.ngg9h.iub9i.n1j7o.glob' 0v5.hurm4.ejod5.ngg9h.iub9i.n1j7o]
+    color+0xfe.f9c4
+    glob-http+['https://mbs.sfo3.digitaloceanspaces.com/dailys/glob-0v3.tm8g9.4f6rk.826i4.2of51.r43k3.glob' 0v3.tm8g9.4f6rk.826i4.2of51.r43k3]
     base+'dailys'
     version+[0 0 1]
-    website+'https://github.com'
+    website+'https://github.com/bbellify/dailys'
     license+'MIT'
 ==
