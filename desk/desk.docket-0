@@ -1,7 +1,7 @@
 :~  title+'Dailys'
     info+'do your dailys'
     color+0xfe.f9c4
-    glob-http+['https://mbs.sfo3.digitaloceanspaces.com/dailys/glob-0vlq5p8.nlp30.h9vgi.61lh5.6vsur.glob' 0vlq5p8.nlp30.h9vgi.61lh5.6vsur]
+    glob-http+['https://mbs.sfo3.digitaloceanspaces.com/dailys/glob-0v2.k4n9i.0c7qn.jll3p.ftmth.sntb5.glob' 0v2.k4n9i.0c7qn.jll3p.ftmth.sntb5]
     base+'dailys'
     version+[0 0 1]
     website+'https://github.com/bbellify/dailys'
