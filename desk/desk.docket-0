@@ -1,4 +1,4 @@
-:~  title+'dailys'
+:~  title+'Dailys'
     info+'do your dailys'
     color+0xfe.f9c4
     glob-http+['https://mbs.sfo3.digitaloceanspaces.com/dailys/glob-0v3.tm8g9.4f6rk.826i4.2of51.r43k3.glob' 0v3.tm8g9.4f6rk.826i4.2of51.r43k3]

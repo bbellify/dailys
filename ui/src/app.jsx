@@ -41,7 +41,7 @@ export const App = () => {
         <div className="flex w-full justify-evenly">
           <div className="w-1/5"></div>
           <div className="flex w-3/5 min-w-[300px] justify-center">
-            <h1 className="text-4xl font-bold text-center py-3">%dailys</h1>
+            <h1 className="text-4xl font-bold text-center py-6">%dailys</h1>
           </div>
           <div className="flex w-1/5 justify-center items-center">
             <button
