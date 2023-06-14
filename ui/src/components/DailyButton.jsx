@@ -51,27 +51,31 @@ export const DailyButton = (props) => {
   const completed = isCompleted(daily);
 
   return (
-    <div className="flex w-full justify-center mb-[3px]">
+    <div className="flex w-full justify-evenly mb-[3px]">
       <div className="w-1/5"></div>
-      <div className={`${deleteOpen ? "animate-wiggle" : ""}`}>
+      <div
+        className={`flex w-3/5 min-w-[300px] justify-center ${
+          deleteOpen ? "animate-shake" : ""
+        }`}
+      >
         <button
           disabled={deleteOpen || addOpen}
           onClick={handleClick}
-          className={`rounded-md w-[300px] py-3 shadow-lg ${
+          className={`flex justify-center rounded-md w-full py-3 shadow-lg ${
             completed
               ? "bg-green-400 active:bg-green-500 disabled:active:bg-green-400"
               : "bg-orange-300 active:bg-green-300 disabled:active:bg-orange-300"
           }`}
         >
-          <p className="font-bold overflow-scroll px-2">
+          <p className="font-bold overflow-scroll">
             {label[0].toUpperCase() + label.substring(1)}
           </p>
         </button>
       </div>
       {deleteOpen ? (
-        <div className="flex justify-start w-1/5 ml-1">
+        <div className="w-1/5 -translate-y-1 flex justify-center">
           <button
-            className="px-2"
+            className="p-2 px-3"
             onMouseDown={handleActiveDelete}
             onMouseUp={handleInactiveDelete}
             onMouseLeave={handleInactiveDelete}

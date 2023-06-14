@@ -38,12 +38,14 @@ export const App = () => {
   return (
     <main className="flex items-center justify-center min-h-screen">
       <div className="flex-col bg-yellow-100 pb-8 min-h-screen w-full sm:max-w-[500px] shadow-lg">
-        <div className="flex w-full justify-between align-middle">
-          <div className="w-1/6"></div>
-          <h1 className="text-4xl font-bold pt-10 text-center pb-8">%dailys</h1>
-          <div className="flex justify-center items-center w-1/6">
+        <div className="flex w-full justify-evenly">
+          <div className="w-1/5"></div>
+          <div className="flex w-3/5 min-w-[300px] justify-center">
+            <h1 className="text-4xl font-bold text-center py-3">%dailys</h1>
+          </div>
+          <div className="flex w-1/5 justify-center items-center">
             <button
-              className="w-fit px-3 py-2"
+              className="flex p-2"
               disabled={addOpen}
               onMouseDown={handleActiveMenu}
               onMouseUp={handleInactiveMenu}

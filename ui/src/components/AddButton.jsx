@@ -52,9 +52,9 @@ export const AddButton = (props) => {
   const addDisabled = deleteOpen ? true : addOpen ? !newDaily : false;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-3/5 min-w-[300px]">
       {addOpen && (
-        <div className="flex justify-between bg-green-100 text-middle rounded-md w-[300px] py-3 mt-[10px] shadow-lg">
+        <div className="flex justify-between bg-green-100 text-middle rounded-md w-full py-3 mt-[10px] shadow-lg">
           <div className="w-1/6"></div>
           <input
             autoFocus
@@ -80,7 +80,7 @@ export const AddButton = (props) => {
       <button
         disabled={addDisabled}
         onClick={!addOpen ? () => setAddOpen(true) : () => handleAdd()}
-        className="bg-green-200 flex justify-center rounded-md w-[300px] py-3 mt-[10px] shadow-lg active:bg-green-300 disabled:bg-green-100"
+        className="bg-green-200 flex justify-center rounded-md w-full py-3 mt-[10px] shadow-lg active:bg-green-300 disabled:bg-green-100"
       >
         {addOpen ? (
           <p
@@ -92,7 +92,7 @@ export const AddButton = (props) => {
           </p>
         ) : (
           <div>
-            {addIcon(addDisabled ? "rgb(147 197 253)" : "rgb(59 130 246)")}
+            {addIcon(addDisabled ? "rgb(147 197 253)" : "rgb(37 99 235)")}
           </div>
         )}
       </button>
