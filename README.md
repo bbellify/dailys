@@ -1,5 +1,7 @@
 # dailys
 
+<img width="800px" src="dailys.png">
+
 ## Desk
 
 The desk currently has the minimum amount of files necessary to distribute an application and should be distributable immediately. Any further Hoon development should happen here.
