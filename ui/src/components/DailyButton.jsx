@@ -10,6 +10,7 @@ export const DailyButton = (props) => {
     const dailyDate = new Date(Object.values(daily)[0]);
     return (
       dailyDate.getDay() === date.getDay() &&
+      dailyDate.getMonth() === date.getMonth() &&
       dailyDate.getFullYear() === date.getFullYear()
     );
   };
